@@ -1,0 +1,10 @@
+<div class="row">
+    <div class="col-xs-12">
+        <h1>Inactive users</h1>
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let user of users; let i = index">
+                {{ user.name }} | <a (click)="onSetActive(i)" style="cursor: pointer;">Set Active</a>
+            </li>
+        </ul>
+    </div>
+</div>
