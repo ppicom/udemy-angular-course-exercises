@@ -1,1 +1,28 @@
-<h1>Bootstrap installed</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-10 col-md-8">
+            <form [formGroup]="loginForm">
+                <div class="form-group">
+                    <label for="project-name">Project Name</label>
+                    <input type="text" name="project-name" id="project-name" class="form-control"
+                        formControlName="name">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" id="email" class="form-control" formControlName="email">
+                </div>
+
+                <div class="form-group">
+                    <label for="status">Project Status</label>
+                    <select name="stauts" id="status" class="form-control" formControlName="status">
+                        <option *ngFor="let status of statuses" value="{{ status.value }}">{{ status.display }}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success" [disabled]="!loginForm.valid">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
