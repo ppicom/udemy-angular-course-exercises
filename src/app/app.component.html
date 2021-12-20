@@ -1,1 +1,40 @@
-<h1>Bootstrap installed</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-10-col-md-8">
+            <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input class="form-control" type="email" name="email" id="email" ngModel email required
+                        #email="ngModel">
+                    <small id="emailHelp" class="form-text text-muted" style="color: red;"
+                        *ngIf="email.touched && !email.valid">Email is required.</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="level">Level</label>
+                    <select class="form-control" name="level" id="level" ngModel="pro" required #level="ngModel">
+                        <option *ngFor="let level of levels" value="{{level.value}}">{{level.display}}</option>
+                    </select>
+                    <small id="levelHelp" class="form-text text-muted" style="color: red;"
+                        *ngIf="level.touched && !level.valid">Level is required.</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" class="form-control" ngModel required
+                        #password="ngModel">
+                    <small id="passwordHelp" class="form-text text-muted" style="color: red;"
+                        *ngIf="password.touched && !password.valid">Password is required.</small>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success" [disabled]="!f.valid">Submit</button>
+                    <small id="passwordHelp" class="form-text text-muted" style="color: red;"
+                        *ngIf="!f.valid && f.touched">
+                        Review the form: some fields have errors.
+                    </small>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
