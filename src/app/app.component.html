@@ -1,1 +1,5 @@
-<h1>Bootstrap installed</h1>
+<h1>Elements</h1>
+
+<ul>
+    <li *ngFor="let element of (elements | sort:'ID')"> {{ element.name | reverse | uppercase }}</li>
+</ul>
